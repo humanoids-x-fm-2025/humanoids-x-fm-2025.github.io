@@ -135,7 +135,15 @@ nav {
 }
 
 .cards,
-.profile-grid {
+.profile-grid-speakers {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(240px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.profile-grid-organizers {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 2rem;
@@ -151,12 +159,26 @@ nav {
     background: linear-gradient(0deg,
             rgba(255, 255, 255, 0.8),
             rgba(255, 255, 255, 0.6)),
-            rgb(244, 182, 164, 0.1);
+        rgb(244, 182, 164, 0.1);
     background-clip: padding-box;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
+}
+
+.card-link {
+    text-decoration: none; /* remove underline */
+    color: inherit; /* inherit text color */
+    display: block; /* makes the whole card clickable */
+}
+
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+    transition: all 0.3s ease;
 }
 
 .profile {
@@ -334,7 +356,7 @@ table caption {
     color: var(--primary);
 }
 
-.sched_time{
+.sched_time {
     font-weight: bold;
     color: var(--primary);
 
@@ -376,11 +398,12 @@ table caption {
     transition: filter 0.3s ease;
 }
 
-#eurobin-logo{
+#eurobin-logo {
     margin-top: 1.3rem;
     max-height: 120px;
     max-width: 320px;
 }
+
 .sponsor-logos img:hover {
     filter: grayscale(0%);
 }
@@ -402,16 +425,16 @@ table caption {
     align-items: center;
     gap: 12px;
     font-family: 'Outfit', sans-serif;
-  }
+}
 
-  .cfp-banner .cfp-link {
+.cfp-banner .cfp-link {
     color: var(--accent);
     font-weight: 800;
     text-decoration: underline;
     cursor: pointer;
-  }
+}
 
-  .cfp-banner .cfp-close-btn {
+.cfp-banner .cfp-close-btn {
     background: none;
     border: none;
     font-size: 1.4rem;
@@ -421,4 +444,45 @@ table caption {
     margin-left: 12px;
     padding: 0 6px;
     line-height: 1;
-  }
+}
+
+.poster {
+    display: block; /* instead of flex row */
+    padding: 1.2rem 1.5rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.6)
+        ),
+        linear-gradient(0deg, var(--sand), var(--sand));
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(10px);
+    color: var(--dark);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    transition: transform 0.2s ease;
+    margin-bottom: 1.5rem;
+}
+
+.poster-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.poster-authors {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+    text-align: left;
+}
+
+.poster-affiliations {
+    font-size: 0.9rem;
+    color: var(--dark);
+    text-align: left;
+    font-style: italic;
+}
